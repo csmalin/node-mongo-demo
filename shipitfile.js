@@ -1,3 +1,5 @@
+const SECRETS = require('./secrets.json');
+
 module.exports = function (shipit) {
   require('shipit-deploy')(shipit);
 
@@ -9,11 +11,11 @@ module.exports = function (shipit) {
       ignores: ['.git', 'node_modules'],
       rsync: ['--del'],
       keepReleases: 2,
-      key: '/Users/cmalin/ec2-ubuntu-node.pem',
+      key: SECRETS.server.sshKeyLocation,
       shallowClone: true
     },
     production: {
-      servers: 'ubuntu@52.24.7.174'
+      servers: `${SECRETS.server.user}@${SECRETS.server.address}`
     }
   });
 
