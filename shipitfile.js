@@ -17,15 +17,15 @@ module.exports = function (shipit) {
     }
   });
 
-  shipit.task('start', function(){
+  shipit.task('stopAll', function(){
     return shipit.remote('/usr/bin/sudo -u ubuntu /usr/bin/forever stopall').then(function(){
-      shipit.emit('started');
+      shipit.emit('stopped');
     });
   });
 
-  shipit.task('stopAll', function(){
+  shipit.task('start', function(){
     return shipit.remote('/usr/bin/sudo -u ubuntu /usr/bin/forever start /home/ubuntu/node-mongo-demo/current/bin/www').then(function(){
-      shipit.emit('stopped');
+      shipit.emit('started');
     });
   });
 
