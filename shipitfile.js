@@ -41,7 +41,7 @@ module.exports = function (shipit) {
   });
 
   shipit.on('deploy', function(){
-    return shipit.start('npm-install');
+    return shipit.start('npmInstall');
   });
 
   shipit.on('npmInstalled', function(){
