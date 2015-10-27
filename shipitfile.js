@@ -44,6 +44,10 @@ module.exports = function (shipit) {
     return shipit.start('npmInstall');
   });
 
+  shipit.on('rollbacked', function(){
+    return shipit.start('npmInstall');
+  });
+
   shipit.on('npmInstalled', function(){
     return shipit.start('restart');
   });
