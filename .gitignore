@@ -29,3 +29,4 @@ node_modules
 
 #Secrets File
 secrets.json
+ec2-ubuntu-node.pem
